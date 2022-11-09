@@ -11,11 +11,23 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from './Logo';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 
 
 
-const pages = ['Productos', 'Ofertas', '¿Quienes Somos?'];
+const pages = [
+  { label:"auriculares", link:"/category/auriculares"},
+  { label:"cargadores", link:"/category/cargadores"},
+  { label:"hubs", link:"/category/hubs"},
+  { label:"mochilas", link:"/category/mochilas"},
+  { label:"mouses", link:"/category/mouses"},
+  { label:"pencil", link:"/category/pencil"},
+  { label:"smartwatch", link:"/category/smartwatch"}, 
+  { label:'Quienes Somos', link:"/quienes-somos"}, 
+  { label:'Contacto', link:"/contacto"},
+
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,8 +50,6 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -50,7 +60,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            WiWU Store
+            <Link to={"/"} style={{textDecoration:"none"}}>
+              WiWU Store
+            </Link>
           </Typography>
 
           {<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -83,17 +95,17 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <Link to={page.link} style={{textDecoration:"none"}}>
+                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>}
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -105,18 +117,22 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            WiWU Store
+            <Link to={"/"} style={{textDecoration:"none"}}>
+              WiWU Store
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              <Link to={page.link} style={{textDecoration:"none"}}>
               <Button
-                key={page}
+                key={page.label}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.label}
               </Button>
+              </Link>
             ))}
           </Box>
         <CartWidget />
