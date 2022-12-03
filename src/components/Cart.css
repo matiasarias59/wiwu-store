@@ -35,21 +35,10 @@
     width: fit-content;
 }
 
-.item_tittle{
-
-}
-
-.item_color{
-
-}
-
 .item_price{
     font-weight: 600;
 }
 
-.item_quantity{
-
-}
 
 .cart_total p {
     font-size: 3rem;
