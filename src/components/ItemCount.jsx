@@ -8,15 +8,15 @@ import './ItemCount.css'
 
 export default function ItemCount({max, initial, onAdd}) {
     
-    let [Count, setCount] = useState(initial);
+    let [count, setCount] = useState(initial);
     const addCount = () =>{
         
-        Count < max && setCount(Count + 1);
+        count < max && setCount(count + 1);
     }
 
     const removeCount = () =>{
         
-        Count > 1 && setCount(Count - 1);
+        count > 1 && setCount(count - 1);
     }
 
   return (
@@ -26,12 +26,12 @@ export default function ItemCount({max, initial, onAdd}) {
             <IconButton onClick={()=>removeCount()}>
                 <RemoveIcon sx={{ fontSize: "2rem" }}/>
             </IconButton>
-            <p>{Count}</p>
+            <p>{count}</p>
             <IconButton onClick={()=>addCount()}>
                 <AddIcon sx={{ fontSize: "2rem" }} />
             </IconButton>
         </div>
-        <Button variant="contained" onClick = {()=>onAdd(Count)}>
+        <Button variant="contained" onClick = {()=>onAdd(count)} >
             Agregar al Carrito
         </Button>
     </div>

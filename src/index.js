@@ -4,6 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCqXwX9RITBLUR-gVOCq8Wr7DHAY7ubmhs",
+  authDomain: "wiwu-store.firebaseapp.com",
+  projectId: "wiwu-store",
+  storageBucket: "wiwu-store.appspot.com",
+  messagingSenderId: "83807619197",
+  appId: "1:83807619197:web:c73b5443fe694371140914"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

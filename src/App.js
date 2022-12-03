@@ -1,34 +1,34 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import NavBar from './components/NavBar';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Cart from './components/Cart';
+import Checkout from "./components/Checkout";
 import Footer from './components/Footer';
-import Contacto from './components/Contacto';
-import QuienesSomos from './components/QuienesSomos';
-
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-
-    <BrowserRouter>
-    <div className="App">
-        <header className="App-header">
-          <NavBar></NavBar>
-        </header>
-        <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Bienvenidos!"/>} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/quienes-somos" element={<QuienesSomos />} />
-          <Route path="/category/:idcategory" element={<ItemListContainer />} />
-          <Route path="/item/:iditem" element={<ItemDetailContainer />} />
-
-        </Routes>
-        
-        <Footer />
-    
-    </div>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+      <div className="App">
+          <header className="App-header">
+            <NavBar></NavBar>
+          </header>
+          <Routes>
+            <Route path="/" element={<ItemListContainer greeting="Bienvenidos!"/>} />
+            <Route path="/category/:idcategory" element={<ItemListContainer />} />
+            <Route path="/item/:iditem" element={<ItemDetailContainer />} />
+            <Route path="/Cart" element= {<Cart />} />
+            <Route path="/checkout" element= {<Checkout />} />
+          </Routes>
+          
+          <Footer />
+      
+      </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

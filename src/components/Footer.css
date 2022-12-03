@@ -1,0 +1,9 @@
+.footer{
+    background-color: #1976d2;
+    height: 3rem;
+    width: 100vw;
+}
+
+.footer p {
+    color: aliceblue;
+}

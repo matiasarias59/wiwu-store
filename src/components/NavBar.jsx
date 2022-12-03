@@ -24,8 +24,6 @@ const pages = [
   { label:"mouses", link:"/category/mouses"},
   { label:"pencil", link:"/category/pencil"},
   { label:"smartwatch", link:"/category/smartwatch"}, 
-  { label:'Quienes Somos', link:"/quienes-somos"}, 
-  { label:'Contacto', link:"/contacto"},
 
 ];
 
@@ -95,8 +93,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page.link} style={{textDecoration:"none"}}>
-                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                <Link to={page.link} style={{textDecoration:"none"}} key={page.label} >
+                <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
                 </Link>
@@ -124,9 +122,9 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.link} style={{textDecoration:"none"}}>
+              <Link to={page.link} style={{textDecoration:"none"}} key={page.label}>
               <Button
-                key={page.label}
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
@@ -135,7 +133,9 @@ function ResponsiveAppBar() {
               </Link>
             ))}
           </Box>
-        <CartWidget />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>  
         </Toolbar>
       </Container>
     </AppBar>

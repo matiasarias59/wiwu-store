@@ -1,0 +1,11 @@
+.finishedOrder_container{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.finishedOrder_container h2{
+    font-size: 3rem;
+    color: #1976d2;
+}
